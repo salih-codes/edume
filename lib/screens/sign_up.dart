@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../widgets/authentication/textfield.dart';
 
-class Authentication extends StatefulWidget {
-  const Authentication({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<Authentication> createState() => _AuthenticationState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _AuthenticationState extends State<Authentication> {
+class _SignUpState extends State<SignUp> {
   bool agreementChecked = false;
-  bool isSignup = false;
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _phoneNumberController = TextEditingController();

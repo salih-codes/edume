@@ -1,4 +1,4 @@
-import 'package:edume/screens/authentication.dart';
+import 'package:edume/screens/sign_up.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,7 +39,7 @@ class Edume extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Authentication(),
+      body: SignUp(),
     );
   }
 }
