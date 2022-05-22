@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/authentication/textfield.dart';
 
@@ -19,25 +20,38 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    const String yellowBlob = 'assets/images/yellow-blob.svg';
+
     final mediaQuery = MediaQuery.of(context);
+    final Widget svg = SvgPicture.asset(
+      yellowBlob,
+      height: mediaQuery.size.height * 0.2,
+      semanticsLabel: 'Yellow Blob',
+    );
     return SingleChildScrollView(
       child: Column(children: [
-        Container(
-          width: mediaQuery.size.width,
-          height: mediaQuery.size.height * 0.2,
-          padding: const EdgeInsets.only(top: 104, left: 28, bottom: 20),
-          color: Theme.of(context).copyWith().primaryColor,
-          child: Text(
-            'Sign up',
-            style: Theme.of(context).textTheme.headline5,
-          ),
+        Stack(
+          alignment: AlignmentDirectional.centerEnd,
+          children: [
+            Container(
+              width: mediaQuery.size.width,
+              height: mediaQuery.size.height * 0.2,
+              padding: const EdgeInsets.only(top: 104, left: 28, bottom: 20),
+              color: Theme.of(context).copyWith().primaryColor,
+              child: Text(
+                'Sign up',
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ),
+            svg
+          ],
         ),
         Container(
+          height: mediaQuery.size.height,
           padding: EdgeInsets.symmetric(
               vertical: mediaQuery.size.height * 0.1,
               horizontal: mediaQuery.size.height * 0.04),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               //Username input
               CustomTextField(

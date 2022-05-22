@@ -55,7 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           )
         : TextField(
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(),
+              contentPadding: const EdgeInsets.only(),
               hintText: widget.label,
               labelStyle: const TextStyle(
                 color: Color(0xFFA1A1A1),
