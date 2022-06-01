@@ -4,11 +4,13 @@ class CustomTextField extends StatefulWidget {
   final String label;
   final TextEditingController controller;
   final TextInputType keyboardType;
+  final Function handler;
   // ignore: use_key_in_widget_constructors
   const CustomTextField({
     required this.label,
     required this.controller,
     required this.keyboardType,
+    required this.handler,
   });
 
   @override
@@ -63,6 +65,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
             controller: widget.controller,
             keyboardType: widget.keyboardType,
+            onSubmitted: (_) => widget.handler,
           );
   }
 }

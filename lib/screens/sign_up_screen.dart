@@ -1,16 +1,22 @@
+import 'package:edume/widgets/authentication/auth_page_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../widgets/authentication/textfield.dart';
+//Widget imports
+import '../widgets/authentication/custom_textfield.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+//Screen imports
+import 'sign_in_screen.dart';
+
+class SignUpScreen extends StatefulWidget {
+  static const routeName = 'sign-up-screen';
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
   bool agreementChecked = false;
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -28,60 +34,45 @@ class _SignUpState extends State<SignUp> {
       height: mediaQuery.size.height * 0.2,
       semanticsLabel: 'Yellow Blob',
     );
-    return SingleChildScrollView(
-      child: Column(children: [
-        Stack(
-          alignment: AlignmentDirectional.centerEnd,
-          children: [
-            Container(
-              width: mediaQuery.size.width,
-              height: mediaQuery.size.height * 0.2,
-              padding: const EdgeInsets.only(top: 104, left: 28, bottom: 20),
-              color: Theme.of(context).copyWith().primaryColor,
-              child: Text(
-                'Sign up',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            ),
-            svg
-          ],
-        ),
-        Container(
-          height: mediaQuery.size.height,
+    return AuthPageShell(
+        pageBody: Container(
+          height: mediaQuery.size.height * 0.6,
           padding: EdgeInsets.symmetric(
               vertical: mediaQuery.size.height * 0.1,
               horizontal: mediaQuery.size.height * 0.04),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               //Username input
               CustomTextField(
-                label: 'Username',
-                controller: _usernameController,
-                keyboardType: TextInputType.text,
-              ),
+                  label: 'Username',
+                  controller: _usernameController,
+                  keyboardType: TextInputType.text,
+                  handler: () {}),
               //Email input
               CustomTextField(
-                label: 'Email',
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-              ),
+                  label: 'Email',
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  handler: () {}),
               //Phone Number input
               CustomTextField(
-                label: 'Phone number',
-                controller: _phoneNumberController,
-                keyboardType: TextInputType.phone,
-              ),
+                  label: 'Phone number',
+                  controller: _phoneNumberController,
+                  keyboardType: TextInputType.phone,
+                  handler: () {}),
               //Password input
               CustomTextField(
-                label: 'Password',
-                controller: _passwordController,
-                keyboardType: TextInputType.visiblePassword,
-              ),
+                  label: 'Password',
+                  controller: _passwordController,
+                  keyboardType: TextInputType.visiblePassword,
+                  handler: () {}),
               //Confirm Password input
               CustomTextField(
                 label: 'Confirm Password',
                 controller: _confirmPasswordController,
                 keyboardType: TextInputType.visiblePassword,
+                handler: () {},
               ),
               //Agreement Checkbox widget and link to Terms and Conditions
               Row(
@@ -123,10 +114,19 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
+
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).popAndPushNamed(SignInScreen.routeName);
+                },
+                child: const Text(
+                  'Already have an account?',
+                  style: TextStyle(color: Colors.black),
+                ),
+              )
             ],
           ),
-        )
-      ]),
-    );
+        ),
+        pageTitle: 'Sign Up');
   }
 }
