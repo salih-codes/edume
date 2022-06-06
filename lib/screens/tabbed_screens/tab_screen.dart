@@ -1,8 +1,10 @@
 //Package imports
+import 'package:edume/screens/tabbed_screens/downloads_screen.dart';
 import 'package:flutter/material.dart';
 
 //Screen imports
 import '../tabbed_screens/home_screen.dart';
+import '../tabbed_screens/search_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   static const routeName = 'tabs_screen';
@@ -25,12 +27,12 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Home',
       },
       {
-        'page': const HomeScreen(),
-        'title': 'Home',
+        'page': const SearchScreen(),
+        'title': 'Search',
       },
       {
-        'page': const HomeScreen(),
-        'title': 'Home',
+        'page': const DownloadScreen(),
+        'title': 'Downloads',
       },
       {
         'page': const HomeScreen(),
