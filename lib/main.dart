@@ -1,13 +1,14 @@
 //Package imports
-import 'package:edume/screens/reset_password-screen.dart';
 import 'package:flutter/material.dart';
 
 //Screen imports
-import 'screens/sign_up_screen.dart';
-import 'screens/sign_in_screen.dart';
-import 'screens/code_confirmation_screen.dart';
-import 'screens/forgot_password_screen.dart';
-import 'screens/recovery_code_screen.dart';
+import 'screens/authentication/sign_up_screen.dart';
+import 'screens/authentication/sign_in_screen.dart';
+import 'screens/authentication/code_confirmation_screen.dart';
+import 'screens/authentication/forgot_password_screen.dart';
+import 'screens/authentication/recovery_code_screen.dart';
+import 'screens/authentication/reset_password-screen.dart';
+import 'screens/tabbed_screens/tab_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,8 +36,9 @@ class MyApp extends StatelessWidget {
           headline5: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
         ),
       ),
-      initialRoute: ResetpasswordScreen.routeName,
+      initialRoute: TabsScreen.routeName,
       routes: {
+        TabsScreen.routeName: (ctx) => const TabsScreen(),
         SignUpScreen.routeName: (ctx) => const SignUpScreen(),
         SignInScreen.routeName: (ctx) => const SignInScreen(),
         CodeConfirmationScreen.routeName: (ctx) =>

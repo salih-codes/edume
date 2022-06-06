@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 
 //Widget imports
-import '../widgets/authentication/custom_textfield.dart';
-import '../widgets/authentication/auth_page_shell.dart';
+import '../../widgets/authentication/custom_textfield.dart';
+import '../../widgets/page_shell.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   static const routeName = 'forgot-password-screen';
@@ -112,35 +112,39 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return AuthPageShell(
-        pageBody: Padding(
-          padding: const EdgeInsets.only(
-            left: 28.0,
-            right: 28,
-            top: 60,
-          ),
-          child: !showOptions
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Enter your username to reset your password',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 18.0, vertical: 20),
-                      child: CustomTextField(
-                        label: 'Username',
-                        controller: _usernameController,
-                        keyboardType: TextInputType.text,
-                        handler: _showOtpOptions,
-                      ),
-                    ),
-                  ],
-                )
-              : _buildOtpOptions(),
+    return PageShell(
+      pageBody: Padding(
+        padding: const EdgeInsets.only(
+          left: 28.0,
+          right: 28,
+          top: 60,
         ),
-        pageTitle: 'Forgot Password');
+        child: !showOptions
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Enter your username to reset your password',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18.0, vertical: 20),
+                    child: CustomTextField(
+                      label: 'Username',
+                      controller: _usernameController,
+                      keyboardType: TextInputType.text,
+                      handler: _showOtpOptions,
+                    ),
+                  ),
+                ],
+              )
+            : _buildOtpOptions(),
+      ),
+      bannerComponent: Text(
+        'Forgot Password',
+        style: Theme.of(context).textTheme.headline5,
+      ),
+    );
   }
 }
