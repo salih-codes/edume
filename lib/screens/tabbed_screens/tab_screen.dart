@@ -1,5 +1,6 @@
 //Package imports
 import 'package:edume/screens/tabbed_screens/downloads_screen.dart';
+import 'package:edume/screens/tabbed_screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 //Screen imports
@@ -35,8 +36,8 @@ class _TabsScreenState extends State<TabsScreen> {
         'title': 'Downloads',
       },
       {
-        'page': const HomeScreen(),
-        'title': 'Home',
+        'page': const SettingScreen(),
+        'title': 'Settings',
       },
     ];
     super.initState();
