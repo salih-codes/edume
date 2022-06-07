@@ -47,7 +47,7 @@ class _RecoveryCodeScreenState extends State<RecoveryCodeScreen> {
             textFieldAlignment: MainAxisAlignment.spaceAround,
             fieldStyle: FieldStyle.underline,
             onChanged: (pin) {
-              print("Changed: " + pin);
+              print("Changed: $pin");
             },
             onCompleted: (pin) {
               print("Completed: $pin");

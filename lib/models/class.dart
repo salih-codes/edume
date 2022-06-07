@@ -1,5 +1,3 @@
-import '/models/category.dart';
-
 class Class {
   final String id;
   final String instructorName;

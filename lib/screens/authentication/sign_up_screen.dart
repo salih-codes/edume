@@ -1,6 +1,5 @@
 import 'package:edume/widgets/page_shell.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 //Widget imports
 import '../../widgets/authentication/custom_textfield.dart';
@@ -26,14 +25,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const String yellowBlob = 'assets/images/yellow-blob.svg';
-
     final mediaQuery = MediaQuery.of(context);
-    final Widget svg = SvgPicture.asset(
-      yellowBlob,
-      height: mediaQuery.size.height * 0.2,
-      semanticsLabel: 'Yellow Blob',
-    );
+    // final Widget svg = SvgPicture.asset(
+    //   yellowBlob,
+    //   height: mediaQuery.size.height * 0.2,
+    //   semanticsLabel: 'Yellow Blob',
+    // );
     return PageShell(
       pageBody: Container(
         height: mediaQuery.size.height * 0.6,

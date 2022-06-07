@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:edume/widgets/page_shell.dart';
 import 'package:edume/widgets/authentication/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +14,15 @@ class ResetpasswordScreen extends StatefulWidget {
 
 class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
   final _newPasswordController = TextEditingController();
-  final _confirmNewPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return PageShell(
       pageBody: Container(
-        padding: EdgeInsets.symmetric(vertical: 100, horizontal: 25),
+        padding: const EdgeInsets.symmetric(
+          vertical: 100,
+          horizontal: 25,
+        ),
         child: Column(
           children: [
             CustomTextField(
@@ -33,7 +37,7 @@ class _ResetpasswordScreenState extends State<ResetpasswordScreen> {
               keyboardType: TextInputType.visiblePassword,
               handler: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             ElevatedButton(

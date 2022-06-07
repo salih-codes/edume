@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:edume/widgets/page_shell.dart';
 import 'package:flutter/material.dart';
 
